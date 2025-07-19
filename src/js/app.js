@@ -36,7 +36,7 @@ document.querySelector('.searchForm').addEventListener('submit', (e) => {
     fetch(`${URL}&${params}`)
         .then(response => {
           if (!response.ok) {
-            throw new Error('Ağ Hatası: ' + response.statusText);
+            throw new Error('Network Error: ' + response.statusText);
           }
           return response.json();
         })
@@ -62,19 +62,19 @@ document.querySelector('.searchForm').addEventListener('submit', (e) => {
                 />
                 <ul class="img-information">
                   <li>
-                    <span class="img-information-title">Beğeni</span>
+                    <span class="img-information-title">Likes</span>
                     <span class="img-information-content">${likes}</span>
                   </li>
                   <li>
-                    <span class="img-information-title">Görüntülenme</span>
+                    <span class="img-information-title">View</span>
                     <span class="img-information-content">${views}</span>
                   </li>
                   <li>
-                    <span class="img-information-title">Yorum</span>
+                    <span class="img-information-title">Comments</span>
                     <span class="img-information-content">${comments}</span>
                   </li>
                   <li>
-                    <span class="img-information-title">İndirme</span>
+                    <span class="img-information-title">Downloads</span>
                     <span class="img-information-content">${downloads}</span>
                   </li>
                 </ul>
@@ -105,10 +105,10 @@ document.querySelector('.searchForm').addEventListener('submit', (e) => {
         .catch(error => {
           iziToast.error({
             title: 'Hata',
-            message: `Görseller yüklenirken bir hata oluştu: ${error.message}`,
+            message: `Something went wrong: ${error.message}`,
             position: 'topRight'
           });
-          console.error('Hata oluştu:', error);
+          console.error('Error:', error);
         })
         .finally(() => {
           hideLoader();
