@@ -44,7 +44,7 @@ document.querySelector('.searchForm').addEventListener('submit', (e) => {
         
           if (data.hits.length === 0) {
             iziToast.warning({
-              message: "Üzgünüz, aramanızla eşleşen görsel bulunamadı. Lütfen farklı bir terimle tekrar deneyin!",
+              message: "Sorry, there are no images matching your search query. Please try again!",
               position: "topRight"
             });
             return;
